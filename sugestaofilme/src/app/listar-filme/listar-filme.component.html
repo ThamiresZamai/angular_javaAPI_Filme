@@ -1,0 +1,25 @@
+
+
+    <div class="row">
+
+        <div class="col-md-3" *ngFor="let item of filmes">
+            <div class="card" >
+                <img class="card-img-top" src="{{item.Poster}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{item.Title}}}</h5>
+                    <p class="card-text"><small class="text-muted">{{item.Year}}</small></p>
+                    <a href="" [routerLink]="[ '/filme/detalhe', item.imdbID ]" class="card-link">Detalhes</a>
+                </div>
+            </div>
+        </div>
+
+       
+        <div *ngIf="tituloPesquisado && !filmes.length">
+            <button type="button" class="btn btn-default btn-lg" *ngIf="tituloPesquisado" (click)="buscarMais()">
+                <span class="fa fa-plus-circle" aria-hidden="true"></span> Mais
+            </button>
+        </div>
+    </div>
+
+   
+
